@@ -14,12 +14,14 @@ def load_reminders():
             if not line.strip():
                 continue
             item = json.loads(line)
+            date_str = item.get("due_date")
+            due_date_obj = datetime.fromisoformat(date_str)
             new_reminder = Reminder(
                 id=item.get("id"),
                 user=item.get("user"),
                 text=item.get("text"),
                 category=item.get("category"),
-                due_date=item.get("due_date")
+                due_date=due_date_obj
             )
             reminders_list.append(new_reminder)
     return reminders_list
