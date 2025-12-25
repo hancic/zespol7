@@ -42,22 +42,25 @@ def load_users():
             users_list.append(user)
     return users_list
 
-def save_user(new_user):
-    with open(USERS_PATH, "a", encoding="utf-8") as file:
-        data = {
-            "username": new_user.username,
-            "password_hash": new_user.password_hash,
-        }
-        file.write(json.dumps(data, ensure_ascii=False) + "\n")
+def save_users(users_list):
+    with open(USERS_PATH, "w", encoding="utf-8") as file:
+        for u in users_list:
+            data = {
+                "username": users_list.username,
+                "password_hash": users_list.password_hash,
+            }
+            file.write(json.dumps(data, ensure_ascii=False) + "\n")
 
 
-def save_reminder(new_reminder):
-    with open(REMINDERS_PATH, "a", encoding="utf-8") as file:
-        data = {
-            "id": new_reminder.id,
-            "user": new_reminder.user,
-            "text": new_reminder.text,
-            "category": new_reminder.category,
-            "due_date": new_reminder.due_date.isoformat()
-        }
-        file.write(json.dumps(data, ensure_ascii=False) + "\n")
+def save_reminders(reminders_list):
+    """Nadpisuje cały plik (używane przy usuwaniu/edycji)"""
+    with open(REMINDERS_PATH, "w", encoding="utf-8") as file:
+        for r in reminders_list:
+            data = {
+                "id": r.id,
+                "user": r.user,
+                "text": r.text,
+                "category": r.category,
+                "due_date": r.due_date.isoformat() if r.due_date else None
+            }
+            file.write(json.dumps(data, ensure_ascii=False) + "\n")
