@@ -28,3 +28,19 @@ def get_next_week_reminders(user_reminders, username):
         print(f"Użytkowniku {username}, nie masz przypomnień na najbliższy tydzień")
 
     return result
+
+
+def get_reminders_by_month(user_reminders, username):
+    """Filtruje przypomnienia dla obecnego miesiąca."""
+
+def get_overdue_reminders(user_reminders, username):
+    """Zwraca przypomnienia, których termin już minął."""
+
+def get_by_category(user_reminders, username, category_name):
+    """Zwraca przypomnienia z konkretnej kategorii (np. 'Praca', 'Dom')."""
+
+def get_summary(user_reminders, username):
+    """Wypisuje krótkie podsumowanie dla użytkownika."""
+
+def get_day_reminders (user_reminders, username, day)
+    """Zwraca przypomnienia z konkretnego dnia."""
