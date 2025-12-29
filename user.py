@@ -8,23 +8,20 @@ def hash_password(password: str) -> str:
 def register_user(username, password, users_list):
     for user in users_list:
         if user.username == username: #użytkownik o tej nazwie już istnieje
-            return []
+            return False
     password_hashed = hash_password(password)
     user = User(
         username=username,
         password_hash=password_hashed
     )
     users_list.append(user)
-    return users_list
+    return True
 
 def login_user(username, password, users_list):
-    user = None
-    for u in users_list:
-        if u.username == username:
-            user = u
-            break
-    if user == None: #nie znaleziono użytkownika o tej nazwie
-        return False
-    elif hash_password(password) == user.password_hash:
-            return True
-    return False
+    for user in users_list:
+        if user.username == username:
+            if hash_password(password) == user.password_hash:
+                return user
+            else:
+                return None
+    return None
