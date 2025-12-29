@@ -46,8 +46,8 @@ def save_users(users_list):
     with open(USERS_PATH, "w", encoding="utf-8") as file:
         for u in users_list:
             data = {
-                "username": users_list.username,
-                "password_hash": users_list.password_hash,
+                "username": u.username,
+                "password_hash": u.password_hash,
             }
             file.write(json.dumps(data, ensure_ascii=False) + "\n")
 
