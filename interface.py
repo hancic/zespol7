@@ -1,5 +1,6 @@
 import user
 import sys
+from user import *
 
 def show_main_menu():
     print("\n--- SYSTEM PRZYPOMNIEŃ ---")
