@@ -37,7 +37,7 @@ def main_menu_action(all_reminders, all_users):
 		if password1 != password2:
 			print("Wprowadzone hasła różnią się\n")
 		else:
-			register_user(username, password, all_users)
+			register_user(username, password1, all_users)
 	elif liczba == 3:
 		sys.exit(0)
 	else:
