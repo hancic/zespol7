@@ -21,9 +21,7 @@ def main():
 			# Tu dodasz logikę logowania/rejestracji
 			current_user = interface.main_menu_action(all_reminders, all_users)
 		else:
-			interface.show_user_menu(current_user)
-			# Tu dodasz obsługę komend użytkownika
-			break
+			current_user = interface.user_menu_action(current_user)
 
 if __name__ == "__main__":
 	main()
