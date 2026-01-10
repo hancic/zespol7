@@ -12,12 +12,17 @@ def show_show_reminders_menu():
 	print("5. Wyświetl powiadomienia na dany dzień")
 	print("6. Wyświetl zaległe powiadomienia")
 	print("7. Wyświetl powiadomienia z daną frazą występującą w komentarzu")
-	return int(get_input(""))
+	print("wpisz \"help\" aby wyświetlić powyższą listę")
 
 def show_reminders(username, user_reminders):
+	show_show_reminders_menu()
 	while True:
 		res = []
-		liczba = show_show_reminders_menu()
+		inp = get_input("")
+		while inp.lower() == "help":
+			show_show_reminders_menu()
+			inp = get_input("")
+		liczba = int(inp)
 		if liczba == 0:
 			return
 		elif liczba == 1:
@@ -40,8 +45,7 @@ def show_reminders(username, user_reminders):
 		
 		if res != []:
 			a = get_input("Czy chcesz wyświetlić powiadomienia w kolejności chronologicznej? [t/N]")
-			if a.lower == "t":
+			if a.lower() == "t":
 				res = sort_by_date(res)
 
 		output_reminder_list(res)
-
