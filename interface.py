@@ -1,18 +1,12 @@
-import filters
+import user_interaction
+from user_interaction import *
+import edit_reminders_ui
+import show_reminders_ui
 import user
 import sys
 from user import *
-from filters import *
-
-######################################
-PROMPT = "-->"
-def output_message(prompt):
-	if (prompt != ""):
-		print(prompt)
-def get_input(prompt):
-	output_message(prompt)
-	return input(PROMPT)
-######################################
+from show_reminders_ui import *
+from edit_reminders_ui import *
 
 def show_main_menu():
 	print("\n--- SYSTEM PRZYPOMNIEŃ ---")
@@ -26,61 +20,6 @@ def show_user_menu(username):
 	print("1. Edytuj listę przypomnień")
 	print("2. Wyświetl przypomnienia")
 
-def show_show_reminders_menu():
-	print("0. Wyjdź do menu użytkownika")
-	print("1. Wyświetl wszystkie swoje powiadomienia")
-	print("2. Wyświetl powiadomienia na dzisiaj")
-	print("3. Wyświetl powiadomienia na następny tydzień")
-	print("4. Wyświetl powiadomienia na następny miesiąc")
-	print("5. Wyświetl powiadomienia na dany dzień")
-	print("6. Wyświetl zaległe powiadomienia")
-	print("7. Wyświetl powiadomienia z daną frazą występującą w komentarzu")
-	return int(get_input(""))
-
-def output_reminder(r):
-	print(f"kategoria: {r.category}")
-	print(f"data: {r.due_date}")
-	print(f"komentarz: {r.text}")
-	print("---------------")
-def output_reminder_list(reminders):
-	if reminders == []:
-		print("brak takich powiadomień")
-	for r in reminders:
-		output_reminder(r)
-
-def show_reminders(username, user_reminders):
-	while True:
-		res = []
-		liczba = show_show_reminders_menu()
-		if liczba == 0:
-			return
-		elif liczba == 1:
-			res = get_by_user(user_reminders, username)
-		elif liczba == 2:
-			res = get_today_reminders(user_reminders, username)
-		elif liczba == 3:
-			res = get_next_week_reminders(user_reminders, username)
-		elif liczba == 4:
-			res = get_next_month_reminders(user_reminders, username)
-		elif liczba == 5:
-			#pierdu pierdu z datami + instrukcje dla użytkownika
-			print("nie jest to jeszcze gotowe")
-			continue
-		elif liczba == 6:
-			res = get_overdue_reminders(user_reminders, username)
-		elif liczba == 7:
-			pattern = get_input("Wpisz frazę, której szukasz")
-			res = search_reminders(user_reminders, username, pattern)
-		
-		if res != []:
-			a = get_input("Czy chcesz wyświetlić powiadomienia w kolejności chronologicznej? [t/N]")
-			if a.lower == "t":
-				res = sort_by_date(res)
-
-		output_reminder_list(res)
-
-def edit_reminders(username, user_reminders):
-	print("nie jest to jeszcze gotowe")
 
 def user_menu_action(username, all_reminders):
 	user_reminders = filters.get_by_user(all_reminders, username)
