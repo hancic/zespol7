@@ -69,9 +69,8 @@ def show_reminders(username, user_reminders):
 		elif liczba == 6:
 			res = get_overdue_reminders(user_reminders, username)
 		elif liczba == 7:
-			#szukanie frazy + instrukcje dla użytkownika
-			print("nie jest to jeszcze gotowe")
-			continue
+			pattern = get_input("Wpisz frazę, której szukasz")
+			res = search_reminders(user_reminders, username, pattern)
 		
 		if res != []:
 			a = get_input("Czy chcesz wyświetlić powiadomienia w kolejności chronologicznej? [t/N]")
