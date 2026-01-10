@@ -18,10 +18,10 @@ def show_reminders(username, user_reminders):
 	show_show_reminders_menu()
 	while True:
 		res = []
-		inp = get_input("")
+		inp = get_input()
 		while inp.lower() == "help":
 			show_show_reminders_menu()
-			inp = get_input("")
+			inp = get_input()
 		liczba = int(inp)
 		if liczba == 0:
 			return

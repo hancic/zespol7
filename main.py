@@ -10,10 +10,6 @@ def main():
 	all_reminders = storage.load_reminders()
 	all_users = storage.load_users()
 	current_user = None
-	# Wczytanie danych z bazy
-	all_reminders = storage.load_reminders()
-	all_users = storage.load_users()
-	current_user = None
 
 	while True:
 		if not current_user:
