@@ -1,3 +1,4 @@
+from datetime import datetime
 from models import Reminder
 
 PROMPT = "-->"
@@ -8,13 +9,17 @@ def get_input(prompt = ""):
 	output_message(prompt)
 	return input(PROMPT)
 def get_date(prompt = ""):
-	print("wczytywanie daty nie jest jeszcze wspierane")
-	return None
+	#narazie z dokładnością do dnia
+	due_date_str = get_input(prompt)
+	if due_date_str == "":
+		return None
+	due_date = datetime.strptime(due_date_str, "%d-%m-%Y")
+	return due_date
 def get_reminder_from_input(username, id = 0):
 	r = Reminder(id, username, None, None, None)
 	r.text = get_input("Komentarz")
 	r.category = get_input("Kategoria")
-	r.due_date = get_date("Data")
+	r.due_date = get_date("Data w formacie DD-MM-RRRR")
 	if r.text == "":
 		r.text = None
 	if r.category == "":

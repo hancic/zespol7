@@ -13,6 +13,8 @@ def edit_reminders(username, user_reminders, all_reminders):
 	while True:
 		show_edit_reminders_menu()
 		liczba = int(get_input())
+		if liczba == 0:
+			return
 		if liczba == 1:
 			print("Wpisz dane nowego przypomnienia (zostaw puste aby nie dodawać")
 			r = get_reminder_from_input(username)
