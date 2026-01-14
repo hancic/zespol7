@@ -148,6 +148,8 @@ def search_reminders(user_reminders, username, query):
     result=[]
     for r in user_reminders:
         #.lower() zamienia na małe litery
+        if r.text == None: #AttributeError: 'NoneType' object has no attribute 'lower' :)
+            continue
         if query.lower() in r.text.lower() and r.user==username:
             result.append(r)
     """  

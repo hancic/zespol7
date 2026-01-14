@@ -35,8 +35,9 @@ def show_reminders(username, user_reminders):
 			res = get_next_month_reminders(user_reminders, username)
 		elif liczba == 5:
 			#pierdu pierdu z datami + instrukcje dla użytkownika
-			print("nie jest to jeszcze gotowe")
-			continue
+			due_date = get_date("Data w formacie DD-MM-RRRR")
+			day = due_date.date()
+			res = get_day_reminders(user_reminders, username, day)
 		elif liczba == 6:
 			res = get_overdue_reminders(user_reminders, username)
 		elif liczba == 7:
