@@ -1,7 +1,9 @@
+import filters
 import user_interaction
 import logic
 from user_interaction import *
 from logic import *
+from filters import *
 
 def show_edit_reminders_menu():
 	print("0. Wyjdź do menu użytkownika")
@@ -11,6 +13,7 @@ def show_edit_reminders_menu():
 
 def edit_reminders(username, user_reminders, all_reminders):
 	while True:
+		user_reminders = filters.get_by_user(all_reminders, username)
 		show_edit_reminders_menu()
 		liczba = int(get_input())
 		if liczba == 0:
