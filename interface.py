@@ -41,7 +41,7 @@ def main_menu_action(all_reminders, all_users):
 		username = get_input("Nazwa użytkownika")
 		password = get_input("Hasło")
 		err = login_user(username, password, all_users)
-		if err:
+		if err == None:
 			print("Nie ma takiego użytkownika lub hasło jest błędne")
 			return None
 		else:
