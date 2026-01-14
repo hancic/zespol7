@@ -6,10 +6,17 @@ import filters
 import interface
 
 def main():
+<<<<<<< HEAD
 	# Wczytanie danych z bazy
 	all_reminders = storage.load_reminders()
 	all_users = storage.load_users()
 	current_user = None
+=======
+    # Wczytanie danych z bazy
+    all_reminders = storage.load_reminders()
+    all_users = storage.load_users()
+    current_user = None
+>>>>>>> main
 
 	while True:
 		if not current_user:
@@ -17,7 +24,9 @@ def main():
 			# Tu dodasz logikę logowania/rejestracji
 			current_user = interface.main_menu_action(all_reminders, all_users)
 		else:
-			current_user = interface.user_menu_action(current_user, all_reminders)
+			interface.show_user_menu(current_user)
+			# Tu dodasz obsługę komend użytkownika
+			break
 
 if __name__ == "__main__":
 	main()
