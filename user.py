@@ -1,5 +1,6 @@
 import hashlib
 from models import *
+from storage import save_users
 
 def hash_password(password: str) -> str:
     """Zamienia jawne hasło na bezpieczny skrót (hash)."""
@@ -15,6 +16,7 @@ def register_user(username, password, users_list):
         password_hash=password_hashed
     )
     users_list.append(user)
+    save_users(users_list)
     return True
 
 def login_user(username, password, users_list):
