@@ -9,8 +9,13 @@ def add_reminder(reminders_list, text, date_str, category, username):
     """Tworzy, dodaje i zapisuje nowe przypomnienie do listy."""
     due_date = datetime.fromisoformat(date_str)
 
+    if not reminders_list:
+        new_id = 0
+    else:
+        new_id = max(int(r.id) for r in reminders_list)
+
     reminder = Reminder(
-        id=str(uuid.uuid4()),
+        id=new_id,
         user=username,
         text=text,
         category=category,
