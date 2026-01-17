@@ -17,7 +17,6 @@ def show_show_reminders_menu():
 	print("wpisz \"help\" aby wyświetlić powyższą listę")
 
 def show_reminders(username, user_reminders):
-	user_reminders = filters.get_by_user(all_reminders, username)
 	show_show_reminders_menu()
 	while True:
 		res = []
@@ -29,7 +28,7 @@ def show_reminders(username, user_reminders):
 		if liczba == 0:
 			return
 		elif liczba == 1:
-			res = get_by_user(user_reminders, username)
+			res = user_reminders
 		elif liczba == 2:
 			res = get_today_reminders(user_reminders, username)
 		elif liczba == 3:
