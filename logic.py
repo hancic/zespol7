@@ -12,7 +12,7 @@ def add_reminder(reminders_list, text, date_str, category, username):
     if not reminders_list:
         new_id = 0
     else:
-        new_id = max(int(r.id) for r in reminders_list)
+        new_id = max(int(r.id) for r in reminders_list) + 1
 
     reminder = Reminder(
         id=new_id,
