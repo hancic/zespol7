@@ -22,8 +22,8 @@ def show_user_menu(username):
 
 
 def user_menu_action(username, all_reminders):
-	user_reminders = filters.get_by_user(all_reminders, username)
 	while True:
+		user_reminders = filters.get_by_user(all_reminders, username)
 		show_user_menu(username)
 		liczba = int(get_input())
 		if liczba == 0:
