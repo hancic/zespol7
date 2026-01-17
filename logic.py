@@ -10,7 +10,7 @@ def add_reminder(reminders_list, text, date_str, category, username):
     due_date = datetime.fromisoformat(date_str)
 
     if not reminders_list:
-        new_id = 0
+        new_id = 1
     else:
         new_id = max(int(r.id) for r in reminders_list) + 1
 
