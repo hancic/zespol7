@@ -21,7 +21,7 @@ def edit_reminders(username, user_reminders, all_reminders):
 		if liczba == 1:
 			print("Wpisz dane nowego przypomnienia (zostaw puste aby nie dodawać")
 			r = get_reminder_from_input(username)
-			add_reminder(all_reminders, r.text, str(r.due_date.isoformat()), r.category, username)
+			add_reminder(all_reminders, r.text, r.due_date, r.category, username)
 		elif liczba == 2:
 			to_delete_list = list(map(int, get_input("Wpisz id przypomnień do usunięcia po spacji").split()))
 			for reminder_id in to_delete_list:
@@ -30,4 +30,4 @@ def edit_reminders(username, user_reminders, all_reminders):
 			reminder_id = int(get_input("Wpisz id przypomnienia do edycji"))
 			print("Wpisz nowe dane (zostaw puste aby nie zmieniać)")
 			r = get_reminder_from_input(username, reminder_id)
-			edit_reminder(all_reminders, reminder_id, r.text, str(r.due_date.isoformat()), r.category)
+			edit_reminder(all_reminders, reminder_id, r.text, r.due_date, r.category)
