@@ -33,7 +33,7 @@ def delete_reminder(reminders_list, reminder_id):
 def edit_reminder(reminders_list, reminder_id, new_text=None, new_date=None, new_category=None):
     """Aktualizuje pola już istniejącego przyomnienia, a więc tekst, datę i kategorię."""
     for r in reminders_list:
-        if r.id == reminder.id:
+        if r.id == reminder_id:
            if new_text is not None:
               r.text = new_text
            if new_date is not None:
