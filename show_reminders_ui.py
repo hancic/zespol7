@@ -17,7 +17,6 @@ def show_show_reminders_menu():
 	print("wpisz \"help\" aby wyświetlić powyższą listę")
 
 def show_reminders(username, user_reminders):
-	user_reminders = filters.get_by_user(all_reminders, username)
 	show_show_reminders_menu()
 	while True:
 		res = []
