@@ -28,7 +28,7 @@ def show_reminders(username, user_reminders):
 		if liczba == 0:
 			return
 		elif liczba == 1:
-			res = get_by_user(user_reminders, username)
+			res = user_reminders
 		elif liczba == 2:
 			res = get_today_reminders(user_reminders, username)
 		elif liczba == 3:
