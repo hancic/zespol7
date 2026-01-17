@@ -30,4 +30,4 @@ def edit_reminders(username, user_reminders, all_reminders):
 			reminder_id = int(get_input("Wpisz id przypomnienia do edycji"))
 			print("Wpisz nowe dane (zostaw puste aby nie zmieniać)")
 			r = get_reminder_from_input(username, reminder_id)
-			edit_reminder(all_reminders, r.id, r.text, str(r.due_date.isoformat()), r.category)
+			edit_reminder(all_reminders, reminder_id, r.text, str(r.due_date.isoformat()), r.category)
