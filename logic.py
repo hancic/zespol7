@@ -5,9 +5,8 @@ from models import Reminder
 from storage import save_reminders
 
 
-def add_reminder(reminders_list, text, date_str, category, username):
+def add_reminder(reminders_list, text, due_date_obj, category, username):
     """Tworzy, dodaje i zapisuje nowe przypomnienie do listy."""
-    due_date = datetime.fromisoformat(date_str)
 
     if not reminders_list:
         new_id = 1
@@ -19,7 +18,7 @@ def add_reminder(reminders_list, text, date_str, category, username):
         user=username,
         text=text,
         category=category,
-        due_date=due_date
+        due_date=due_date_obj
     )
 
     reminders_list.append(reminder)
@@ -35,14 +34,14 @@ def delete_reminder(reminders_list, reminder_id):
             return removed
     return None
 
-def edit_reminder(reminders_list, reminder_id, new_text=None, new_date=None, new_category=None):
+def edit_reminder(reminders_list, reminder_id, new_text=None, new_date_obj=None, new_category=None):
     """Aktualizuje pola już istniejącego przyomnienia, a więc tekst, datę i kategorię."""
     for r in reminders_list:
         if r.id == reminder_id:
            if new_text is not None:
               r.text = new_text
-           if new_date is not None:
-              r.due_date = datetime.fromisoformat(new_date)
+           if new_date_obj is not None:
+              r.due_date = new_date_obj
            if new_category is not None:
               r.category = new_category
 
