@@ -28,7 +28,7 @@ def get_reminder_from_input(username, id = 0):
 def output_reminder(r):
 	print(f"id: {r.id}")
 	print(f"kategoria: {r.category}")
-	print(f"data: {r.due_date}")
+	print(f"data: {r.due_date.strftime('%d-%m-%Y')}")
 	print(f"komentarz: {r.text}")
 	print("---------------")
 def output_reminder_list(reminders):
