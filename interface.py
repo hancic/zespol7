@@ -48,6 +48,9 @@ def main_menu_action(all_reminders, all_users):
 			return username
 	elif liczba == 2:
 		username = get_input("Nazwa nowego użytkownika")
+		if any(u.username == username for u in all_users):
+			print("Nazwa użytkownika jest już zajęta. Wybierz inną")
+			return None
 		password1 = get_input("Hasło")
 		password2 = get_input("Potwierdź Hasło")
 		if password1 != password2:
