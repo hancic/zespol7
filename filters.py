@@ -75,7 +75,7 @@ def get_by_category(user_reminders, username, category_name):
     result=[]
     for r in user_reminders:
         if r.category == category_name and r.user==username: #jeśli jest ta sama kategoria
-            result.append(r)"
+            result.append(r)
     return result
 
 
