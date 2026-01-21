@@ -21,10 +21,13 @@ def show_reminders(username, user_reminders):
 	while True:
 		res = []
 		inp = get_input()
-		while inp.lower() == "help":
+		if inp.lower() == "help":
 			show_show_reminders_menu()
-			inp = get_input()
-		liczba = int(inp)
+			continue
+		try:
+			liczba = int(inp)
+		except ValueError:
+			print("To nie jest poprawna opcja! Wpisz cyfrę (0-7) lub 'help'.")
 		if liczba == 0:
 			return
 		elif liczba == 1:

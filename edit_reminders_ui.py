@@ -15,11 +15,11 @@ def edit_reminders(username, user_reminders, all_reminders):
 	while True:
 		user_reminders = filters.get_by_user(all_reminders, username)
 		show_edit_reminders_menu()
-		liczba = int(get_input())
+		liczba = get_int_input()
 		if liczba == 0:
 			return
 		if liczba == 1:
-			print("Wpisz dane nowego przypomnienia (zostaw puste aby nie dodawać")
+			print("Wpisz dane nowego przypomnienia (zostaw puste aby nie dodawać)")
 			r = get_reminder_from_input(username)
 			add_reminder(all_reminders, r.text, r.due_date, r.category, username)
 		elif liczba == 2:
@@ -27,7 +27,7 @@ def edit_reminders(username, user_reminders, all_reminders):
 			for reminder_id in to_delete_list:
 				delete_reminder(all_reminders, reminder_id)
 		elif liczba == 3:
-			reminder_id = int(get_input("Wpisz id przypomnienia do edycji"))
+			reminder_id = get_int_input("Wpisz id przypomnienia do edycji")
 			print("Wpisz nowe dane (zostaw puste aby nie zmieniać)")
 			r = get_reminder_from_input(username, reminder_id)
 			edit_reminder(all_reminders, reminder_id, r.text, r.due_date, r.category)

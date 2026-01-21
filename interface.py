@@ -25,7 +25,7 @@ def user_menu_action(username, all_reminders):
 	while True:
 		user_reminders = filters.get_by_user(all_reminders, username)
 		show_user_menu(username)
-		liczba = int(get_input())
+		liczba = get_int_input()
 		if liczba == 0:
 			return None
 		elif liczba == 1:
@@ -36,7 +36,7 @@ def user_menu_action(username, all_reminders):
 #####################################################################
 
 def main_menu_action(all_reminders, all_users):
-	liczba = int(get_input())
+	liczba = get_int_input()
 	if liczba == 1:
 		username = get_input("Nazwa użytkownika")
 		password = get_input("Hasło")
