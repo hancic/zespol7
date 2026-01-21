@@ -27,3 +27,12 @@ def login_user(username, password, users_list):
             else:
                 return None
     return None
+
+def delete_user(username, users_list):
+    """Usuwa użytkownika z listy i aktualizuje bazę danych."""
+    for i, user in enumerate(users_list):
+        if user.username == username:
+            users_list.pop(i) 
+            save_users(users_list) 
+            return True
+    return False
