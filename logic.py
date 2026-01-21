@@ -48,3 +48,8 @@ def edit_reminder(reminders_list, reminder_id, new_text=None, new_date_obj=None,
            save_reminders(reminders_list)
            return r
     return None
+
+def delete_all_user_reminders(reminders_list, username):
+    """Usuwa wszystkie przypomnienia powiązane z danym użytkownikiem."""
+    reminders_list[:] = [r for r in reminders_list if r.user != username]
+    save_reminders(reminders_list) 

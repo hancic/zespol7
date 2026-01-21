@@ -58,7 +58,6 @@ def get_day_reminders (user_reminders, username, day):
     return result
 
 
-
 def get_overdue_reminders(user_reminders, username):
     """Zwraca przypomnienia, których termin już minął."""
     today = datetime.now().date()
@@ -69,7 +68,6 @@ def get_overdue_reminders(user_reminders, username):
     return result
 
 
-#nie jestem pewna czy będziemy mieć te kategorie, w razie czego zakomentować
 def get_by_category(user_reminders, username, category_name):
     """Zwraca przypomnienia z konkretnej kategorii."""
     result=[]
@@ -77,7 +75,6 @@ def get_by_category(user_reminders, username, category_name):
         if r.category == category_name and r.user==username: #jeśli jest ta sama kategoria
             result.append(r)
     return result
-
 
 
 def search_reminders(user_reminders, username, query):
@@ -88,9 +85,15 @@ def search_reminders(user_reminders, username, query):
         if r.text == None: #AttributeError: 'NoneType' object has no attribute 'lower' :)
             continue
         if query.lower() in r.text.lower() and r.user==username:
-            result.append(r)
-   
+            result.append(r)  
     return result
+
+
+def get_unique_categories(user_reminders):
+    """Zwraca posortowaną listę unikalnych kategorii użytkownika."""
+    # Tworzymy zbiór kategorii, pomijając te, które są puste (None)
+    categories = {r.category for r in user_reminders if r.category}
+    return sorted(list(categories))
 
 
 def sort_by_date(user_reminders):

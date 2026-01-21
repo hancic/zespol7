@@ -19,24 +19,32 @@ def show_user_menu(username):
 	print("0. Wyloguj się")
 	print("1. Edytuj listę przypomnień")
 	print("2. Wyświetl przypomnienia")
+	print("3. Usuń konto")
 
 
-def user_menu_action(username, all_reminders):
+def user_menu_action(username, all_reminders, all_users):
 	while True:
 		user_reminders = filters.get_by_user(all_reminders, username)
 		show_user_menu(username)
-		liczba = int(get_input())
+		liczba = get_int_input()
 		if liczba == 0:
 			return None
 		elif liczba == 1:
 			edit_reminders(username, user_reminders, all_reminders)
 		elif liczba == 2:
 			show_reminders(username, user_reminders)
+		elif liczba == 3:
+			potwierdzenie = get_input("Czy na pewno chcesz usunąć konto? Wszystkie dane znikną! (t/N)")
+			if potwierdzenie.lower() == 't':
+				delete_all_user_reminders(all_reminders, username)
+				delete_user(username, all_users)
+				print(f"Konto użytkownika {username} zostało usunięte.")
+				return None
 
 #####################################################################
 
 def main_menu_action(all_reminders, all_users):
-	liczba = int(get_input())
+	liczba = get_int_input()
 	if liczba == 1:
 		username = get_input("Nazwa użytkownika")
 		password = get_input("Hasło")

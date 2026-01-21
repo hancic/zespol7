@@ -8,13 +8,29 @@ def output_message(prompt):
 def get_input(prompt = ""):
 	output_message(prompt)
 	return input(PROMPT)
+def get_int_input(prompt = ""):
+    """Pobiera liczbę od użytkownika, dopóki nie poda on poprawnej wartości."""
+    while True:
+        try:
+            # Próbujemy zamienić tekst na liczbę
+            return int(get_input(prompt))
+        except ValueError:
+            # Jeśli się nie uda (np. wpisano literę), wyświetlamy komunikat
+            print("To nie jest liczba! Wprowadź cyfrę odpowiadającą opcji w menu.")
+
 def get_date(prompt = ""):
-	#narazie z dokładnością do dnia
-	due_date_str = get_input(prompt)
-	if due_date_str == "":
-		return None
-	due_date = datetime.strptime(due_date_str, "%d-%m-%Y")
-	return due_date
+    """Pobiera datę i prosi o ponowienie, jeśli format jest błędny."""
+    while True:
+        due_date_str = get_input(prompt)
+        if due_date_str == "":
+            return None
+        try:
+            # Sprawdzamy, czy format pasuje do DD-MM-RRRR
+            due_date = datetime.strptime(due_date_str, "%d-%m-%Y")
+            return due_date
+        except ValueError:
+            # Jeśli format jest zły (np. kropki zamiast myślników), nie crashujemy programu
+            print("Błędny format daty! Proszę użyć formatu DD-MM-RRRR (np. 21-01-2026).")
 def get_reminder_from_input(username, id = 0):
 	r = Reminder(id, username, None, None, None)
 	r.text = get_input("Komentarz")
@@ -32,7 +48,7 @@ def output_reminder(r):
 	print(f"komentarz: {r.text}")
 	print("---------------")
 def output_reminder_list(reminders):
-	if reminders == []:
+	if reminders == [] :
 		print("brak takich powiadomień")
 	for r in reminders:
 		output_reminder(r)

@@ -1,7 +1,11 @@
-{"id": "a024500a-3ee6-481f-b44a-b02cfd45ae40", "user": "Pablo", "text": null, "category": null, "due_date": "2027-01-01T00:00:00"}
-{"id": "96b1ddf0-58d3-4377-a11b-cb920dbca00e", "user": "Pablo", "text": "aaafrazaaaa a", "category": "wylew", "due_date": "2026-01-16T00:00:00"}
-{"id": "0e9f40c8-c857-4138-9756-86800a7ce4f3", "user": "pro", "text": null, "category": "cat", "due_date": "2026-01-20T00:00:00"}
-{"id": "29efb0b0-0521-4e4d-bbda-091af882727a", "user": "try", "text": "aa", "category": null, "due_date": "2026-02-01T00:00:00"}
-{"id": "a6ad652c-8d15-4d0e-bf1b-e2be4df5de69", "user": "try", "text": "python to wylew", "category": null, "due_date": "2026-01-30T00:00:00"}
-{"id": "b3be120d-a00a-44a1-8b1c-cfc4a4f22e1d", "user": "try", "text": null, "category": null, "due_date": "2030-01-01T00:00:00"}
-{"id": "cc6f26d9-d9ce-41a3-8103-87b0704488e4", "user": "a", "text": null, "category": null, "due_date": "2030-01-01T00:00:00"}
+{"id": 1, "user": "Test1", "text": "Zadanie1", "category": "Pilne", "due_date": "2026-01-21T00:00:00"}
+{"id": 2, "user": "Test1", "text": "Zadanie2", "category": "Pilne", "due_date": "2026-01-22T00:00:00"}
+{"id": 3, "user": "Test1", "text": "Zadanie3", "category": "Średnie", "due_date": "2026-02-10T00:00:00"}
+{"id": 4, "user": "Test1", "text": "Zadanie4", "category": "Niskie", "due_date": "2026-03-03T00:00:00"}
+{"id": 5, "user": "Test1", "text": "Zadanie5", "category": "Średnie", "due_date": "2026-02-08T00:00:00"}
+{"id": 6, "user": "Test1", "text": "Zadanie6", "category": "Pilne", "due_date": "2026-01-27T00:00:00"}
+{"id": 7, "user": "Test1", "text": "Zadanie7", "category": "Średnie", "due_date": "2026-01-27T00:00:00"}
+{"id": 8, "user": "Test1", "text": "Zadanie8", "category": "Niskie", "due_date": "2026-02-17T00:00:00"}
+{"id": 9, "user": "Test1", "text": "Zadanie9", "category": "Niskie", "due_date": "2027-02-15T00:00:00"}
+{"id": 10, "user": "Test1", "text": "Zadanie10", "category": "Średnie", "due_date": "2026-02-02T00:00:00"}
+{"id": 11, "user": "Test2", "text": "Oddany fajny projekt: prosimy o dużo punktów :)", "category": "Bardzo ważne", "due_date": "2026-01-21T00:00:00"}

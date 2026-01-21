@@ -14,6 +14,8 @@ def show_show_reminders_menu():
 	print("5. Wyświetl powiadomienia na dany dzień")
 	print("6. Wyświetl zaległe powiadomienia")
 	print("7. Wyświetl powiadomienia z daną frazą występującą w komentarzu")
+	print("8. Wyświetl powiadomienia z danej kategorią")
+	print("9. Wyświetl listę swoich kategorii")
 	print("wpisz \"help\" aby wyświetlić powyższą listę")
 
 def show_reminders(username, user_reminders):
@@ -21,10 +23,13 @@ def show_reminders(username, user_reminders):
 	while True:
 		res = []
 		inp = get_input()
-		while inp.lower() == "help":
+		if inp.lower() == "help":
 			show_show_reminders_menu()
-			inp = get_input()
-		liczba = int(inp)
+			continue
+		try:
+			liczba = int(inp)
+		except ValueError:
+			print("To nie jest poprawna opcja! Wpisz cyfrę (0-8) lub 'help'.")
 		if liczba == 0:
 			return
 		elif liczba == 1:
@@ -45,6 +50,19 @@ def show_reminders(username, user_reminders):
 		elif liczba == 7:
 			pattern = get_input("Wpisz frazę, której szukasz")
 			res = search_reminders(user_reminders, username, pattern)
+		elif liczba == 8:
+			category_name = get_input("Wpisz kategorię, którą chcesz wypisać")
+			res = get_by_category(user_reminders, username, category_name)
+		elif liczba == 9:
+			categories = get_unique_categories(user_reminders)
+			if categories:
+				print("Twoje obecne kategorie")
+				for cat in categories:
+					print (f"- {cat}")
+			else:
+				print("Nie masz jeszcze przypisanych żadnych kategorii.")
+			continue
+			
 		
 		if res != []:
 			a = get_input("Czy chcesz wyświetlić powiadomienia w kolejności chronologicznej? [t/N]")
