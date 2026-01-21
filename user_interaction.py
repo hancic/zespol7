@@ -48,7 +48,7 @@ def output_reminder(r):
 	print(f"komentarz: {r.text}")
 	print("---------------")
 def output_reminder_list(reminders):
-	if reminders == []:
+	if reminders == [] :
 		print("brak takich powiadomień")
 	for r in reminders:
 		output_reminder(r)

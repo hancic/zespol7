@@ -14,7 +14,8 @@ def show_show_reminders_menu():
 	print("5. Wyświetl powiadomienia na dany dzień")
 	print("6. Wyświetl zaległe powiadomienia")
 	print("7. Wyświetl powiadomienia z daną frazą występującą w komentarzu")
-	print("8. Wyświetl powiadomienia z daną kategorią")
+	print("8. Wyświetl powiadomienia z danej kategorią")
+	print("9. Wyświetl listę swoich kategorii")
 	print("wpisz \"help\" aby wyświetlić powyższą listę")
 
 def show_reminders(username, user_reminders):
@@ -52,6 +53,15 @@ def show_reminders(username, user_reminders):
 		elif liczba == 8:
 			category_name = get_input("Wpisz kategorię, którą chcesz wypisać")
 			res = get_by_category(user_reminders, username, category_name)
+		elif liczba == 9:
+			categories = get_unique_categories(user_reminders)
+			if categories:
+				print("Twoje obecne kategorie")
+				for cat in categories:
+					print (f"- {cat}")
+			else:
+				print("Nie masz jeszcze przypisanych żadnych kategorii.")
+			continue
 			
 		
 		if res != []:
