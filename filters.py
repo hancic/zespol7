@@ -69,7 +69,6 @@ def get_overdue_reminders(user_reminders, username):
     return result
 
 
-#nie jestem pewna czy będziemy mieć te kategorie, w razie czego zakomentować
 def get_by_category(user_reminders, username, category_name):
     """Zwraca przypomnienia z konkretnej kategorii."""
     result=[]
